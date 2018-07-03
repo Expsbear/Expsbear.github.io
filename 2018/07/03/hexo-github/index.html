@@ -1,6 +1,24 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>用hexo+github快速搭建个人博客 - Expsbear's Blog</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="https://github.com/Expsbear"><span>Github</span></a></li></ul><div class="wrapper" id="wrap"><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://callfiles.ueibo.com/hexo-theme-laughing/post_background.jpg"><div class="post-title"><h1 class="title">用hexo+github快速搭建个人博客</h1><ul class="meta"><li><i class="icon icon-author"></i>Expsbear</li><li><i class="icon icon-clock"></i>1 Minutes</li><li><i class="icon icon-calendar"></i>July 3, 2018</li></ul></div></div><div class="article-content" style="max-width:800px"><h2 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h2><p>这里以windows环境为例，到<a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js官方</a>，选择合适的版本进行下载并安装。</p>
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>用hexo+github快速搭建个人博客 - Expsbear's Blog</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="https://github.com/Expsbear"><span>Github</span></a></li></ul><div class="wrapper" id="wrap"><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://callfiles.ueibo.com/hexo-theme-laughing/post_background.jpg"><div class="post-title"><h1 class="title">用hexo+github快速搭建个人博客</h1><ul class="meta"><li><i class="icon icon-author"></i>Expsbear</li><li><i class="icon icon-clock"></i>4 Minutes</li><li><i class="icon icon-calendar"></i>July 3, 2018</li></ul></div></div><div class="article-content" style="max-width:800px"><h2 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h2><p>这里以windows环境为例，到<a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js官方</a>，选择合适的版本进行下载并安装。</p>
 <h2 id="安装git客户端"><a href="#安装git客户端" class="headerlink" title="安装git客户端"></a>安装git客户端</h2><p>到<a href="https://git-scm.com/" target="_blank" rel="noopener">git官网</a>选择合适的版本进行下载，注意勾选Git Bash Here和Git GUI Here选项，方便随时随地打开命令窗口。</p>
-<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>在电脑上创建一个文件夹，创建后进入文件夹中，按住shift键，右击鼠标点击“在此处打开Powershell窗口”，使用npm命令安装hexo，输入：</p>
+<h2 id="github创建个人仓库"><a href="#github创建个人仓库" class="headerlink" title="github创建个人仓库"></a>github创建个人仓库</h2><p>登录到<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>,如果没有GitHub帐号，使用你的邮箱注册GitHub帐号,点击GitHub中的New repository创建新仓库，仓库名应该为：用户名.github.io 这个用户名使用你的GitHub帐号名称代替，这是固定写法，比如我的仓库名为：Expsbear.github.io</p>
+<h2 id="本地git与github账号绑定"><a href="#本地git与github账号绑定" class="headerlink" title="本地git与github账号绑定"></a>本地git与github账号绑定</h2><p>右击鼠标点击Git Bash Here，输入以下命令设置配置信息：</p>
+<blockquote>
+<p>git config –global user.name “你的GitHub用户名”<br>git config –global user.email “你的GitHub注册邮箱”</p>
+</blockquote>
+<p>生成ssh密钥文件：</p>
+<blockquote>
+<p>ssh-keygen -t rsa -C “你的GitHub注册邮箱”</p>
+</blockquote>
+<p>然后直接三个回车即可，默认不需要设置密码</p>
+<p>然后找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制</p>
+<p>打开GitHub_Settings_keys 页面，新建new SSH Key</p>
+<p>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴到Key下面的文本框，最后点击Add SSH key。</p>
+<p>在Git Bash中输入以下命令检测gtihub公钥设置是否成功：</p>
+<blockquote>
+<p>ssh <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></p>
+</blockquote>
+<p>设置GitHub密钥原因是，通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</p>
+<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>在电脑上创建一个文件夹blog，创建后进入文件夹中，按住shift键，右击鼠标点击“在此处打开Powershell窗口”，使用npm命令安装hexo，输入：</p>
 <blockquote>
 <p>npm install -g hexo-cli</p>
 </blockquote>
@@ -18,7 +36,31 @@
 <blockquote>
 <p>npm s</p>
 </blockquote>
-</div><div class="article-meta" style="max-width:800px"></div><div class="article-comment" style="max-width:800px"><div class="ds-thread" id="ds-thread" data-thread-key="cjj5dijcc0001sknzkxga9yhl" data-title="用hexo+github快速搭建个人博客" data-url="http://yoursite.com/2018/07/03/hexo-github/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
+<p>在浏览器中输入<a href="http://localhost:4000/，就可以看到博客展现出来了。" target="_blank" rel="noopener">http://localhost:4000/，就可以看到博客展现出来了。</a></p>
+<h2 id="hexo的一些基本命令"><a href="#hexo的一些基本命令" class="headerlink" title="hexo的一些基本命令"></a>hexo的一些基本命令</h2><p>hexo n “我的博客” == hexo new “我的博客” #新建文章</p>
+<p>hexo g == hexo generate #用于生成静态文件</p>
+<p>hexo s == hexo server #用于启动服务器，主要用来本地预览</p>
+<p>hexo d == hexo deploy #用于将本地文件发布到github等git仓库上</p>
+<p>hexo server #Hexo会监视文件变动并自动更新，无须重启服务器</p>
+<p>hexo server -s #静态模式</p>
+<p>hexo server -p 5000 #更改端口</p>
+<p>hexo server -i 192.168.1.1 #自定义 IP</p>
+<p>hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令</p>
+<h2 id="hexo与github关联起来"><a href="#hexo与github关联起来" class="headerlink" title="hexo与github关联起来"></a>hexo与github关联起来</h2><p>打开blog文件夹下的配置文件_config.yml，翻到最后修改为：</p>
+<p>deploy:<br>type: git<br>repo: 这里填入你之前在GitHub上创建仓库的完整路径，记得加上 .git<br>branch: master<br>参考如下：</p>
+<blockquote>
+<p>deploy:<br>  type: git<br>  repo: <a href="https://github.com/Expsbear/Expsbear.github.io.git" target="_blank" rel="noopener">https://github.com/Expsbear/Expsbear.github.io.git</a><br>  branch: master</p>
+</blockquote>
+<p>安装Git部署插件：</p>
+<blockquote>
+<p>npm install hexo-deployer-git –save</p>
+</blockquote>
+<p>这时，我们分别输入三条命令：</p>
+<blockquote>
+<p>hexo clean<br>hexo g<br>hexo d  </p>
+</blockquote>
+<p>打开浏览器，在地址栏输入你的放置个人网站的仓库路径，即xxx.github.io，你就会发现你的博客已经上线了，可以在网络上被访问了。</p>
+</div><div class="article-meta" style="max-width:800px"></div><div class="article-comment" style="max-width:800px"><div class="ds-thread" id="ds-thread" data-thread-key="cjj5g8lp60001f0nzuwusu55z" data-title="用hexo+github快速搭建个人博客" data-url="http://yoursite.com/2018/07/03/hexo-github/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
 var duoshuoQuery = {short_name: siteName};
 (function() {
   var ds = document.createElement('script');
