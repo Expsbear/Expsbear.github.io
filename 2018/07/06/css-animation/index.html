@@ -1,17 +1,32 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>css动画：animation、transition、transform、translate - Expsbear's Blog</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="https://github.com/Expsbear"><span>Github</span></a></li></ul><div class="wrapper" id="wrap"><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://callfiles.ueibo.com/hexo-theme-laughing/post_background.jpg"><div class="post-title"><h1 class="title">css动画：animation、transition、transform、translate</h1><ul class="meta"><li><i class="icon icon-author"></i>Expsbear</li><li><i class="icon icon-clock"></i>0 Minutes</li><li><i class="icon icon-calendar"></i>July 6, 2018</li></ul></div></div><div class="article-content" style="max-width:800px"><h2 id="阿里有这样一道面试题：使用css实现一个持续的动画效果"><a href="#阿里有这样一道面试题：使用css实现一个持续的动画效果" class="headerlink" title="阿里有这样一道面试题：使用css实现一个持续的动画效果"></a>阿里有这样一道面试题：使用css实现一个持续的动画效果</h2><p>我相信这道面试题对于大多数人来说都没什么问题的</p>
-<pre><code>animation:mymove 5s infinite;
-@keyframes mymove {
-from {top:0px;}
-to {top:200px;}
-}
-</code></pre><p>这道题主要考察的是animation的用法，看到animation大家都应该会想到transition、transform、translate，那么问题来了，这四个css动画到底该怎么使用？有什么区别呢？</p>
-<table><br><tbody><br><tr><td><em>属性</em></td><td><em>含义</em></td></tr><br><tr><td>animation（动画）</td><td>用于设置动画属性，他是一个简写的属性，包含6个属性</td></tr><br><tr><td>transition（过渡）</td><td>用于设置元素的样式过度，和animation有着类似的效果，但细节上有很大的不同</td></tr><br><tr><td>transform（变形）</td><td>用于元素进行旋转、缩放、移动或倾斜，和设置样式的动画并没有什么关系，就相当于color一样用来设置元素的“外表”</td></tr><br><tr><td>translate（移动）</td><td>translate只是transform的一个属性值，即移动。</td></tr><br></tbody><br></table>
-
-
-
-
-
-</div><div class="article-meta" style="max-width:800px"></div><div class="article-comment" style="max-width:800px"><div class="ds-thread" id="ds-thread" data-thread-key="cjja1mn4o0000fwnzw0dz0z1j" data-title="css动画：animation、transition、transform、translate" data-url="http://yoursite.com/2018/07/06/css-animation/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>css动画：animation、transition、transform、translate - Expsbear's Blog</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="https://github.com/Expsbear"><span>Github</span></a></li></ul><div class="wrapper" id="wrap"><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://callfiles.ueibo.com/hexo-theme-laughing/post_background.jpg"><div class="post-title"><h1 class="title">css动画：animation、transition、transform、translate</h1><ul class="meta"><li><i class="icon icon-author"></i>Expsbear</li><li><i class="icon icon-clock"></i>1 Minutes</li><li><i class="icon icon-calendar"></i>July 6, 2018</li></ul></div></div><div class="article-content" style="max-width:800px"><h2 id="阿里有这样一道面试题：使用css实现一个持续的动画效果"><a href="#阿里有这样一道面试题：使用css实现一个持续的动画效果" class="headerlink" title="阿里有这样一道面试题：使用css实现一个持续的动画效果"></a>阿里有这样一道面试题：使用css实现一个持续的动画效果</h2><p>我相信这道面试题对于大多数人来说都没什么问题的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">animation:mymove 5s infinite;  </span><br><span class="line"></span><br><span class="line">@keyframes mymove &#123;  </span><br><span class="line">  </span><br><span class="line">from &#123;top:0px;&#125;  </span><br><span class="line">     </span><br><span class="line">to &#123;top:200px;&#125;  </span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这道题主要考察的是animation的用法，看到animation大家都应该会想到transition、transform、translate，那么问题来了，这四个css动画到底该怎么使用？有什么区别呢？</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>animation（动画）</td>
+<td>用于设置动画属性，他是一个简写的属性，包含6个属性</td>
+</tr>
+<tr>
+<td>transition（过渡）</td>
+<td>用于设置元素的样式过度，和animation有着类似的效果，但细节上有很大的不同</td>
+</tr>
+<tr>
+<td>transform（变形）</td>
+<td>用于元素进行旋转、缩放、移动或倾斜，和设置样式的动画并没有什么关系，就相当于color一样用来设置元素的“外表”</td>
+</tr>
+<tr>
+<td>translate（移动）</td>
+<td>translate只是transform的一个属性值，即移动。</td>
+</tr>
+</tbody>
+</table>
+</div><div class="article-meta" style="max-width:800px"></div><div class="article-comment" style="max-width:800px"><div class="ds-thread" id="ds-thread" data-thread-key="cjja49xoz000000nz3sn72eu3" data-title="css动画：animation、transition、transform、translate" data-url="http://yoursite.com/2018/07/06/css-animation/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
 var duoshuoQuery = {short_name: siteName};
 (function() {
   var ds = document.createElement('script');
