@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>css动画：animation、transition、transform、translate - Expsbear's Blog</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="https://github.com/Expsbear"><span>Github</span></a></li></ul><div class="wrapper" id="wrap"><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://callfiles.ueibo.com/hexo-theme-laughing/post_background.jpg"><div class="post-title"><h1 class="title">css动画：animation、transition、transform、translate</h1><ul class="meta"><li><i class="icon icon-author"></i>Expsbear</li><li><i class="icon icon-clock"></i>4 Minutes</li><li><i class="icon icon-calendar"></i>July 6, 2018</li></ul></div></div><div class="article-content" style="max-width:800px"><h2 id="阿里有这样一道面试题：使用css实现一个持续的动画效果"><a href="#阿里有这样一道面试题：使用css实现一个持续的动画效果" class="headerlink" title="阿里有这样一道面试题：使用css实现一个持续的动画效果"></a>阿里有这样一道面试题：使用css实现一个持续的动画效果</h2><p>我相信这道面试题对于大多数人来说都没什么问题的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">animation:mymove 5s infinite;</span><br><span class="line">@keyframes mymove &#123;</span><br><span class="line">from &#123;top:0px;&#125;</span><br><span class="line">to &#123;top:200px;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>css动画：animation、transition、transform、translate - Expsbear's Blog</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="https://github.com/Expsbear"><span>Github</span></a></li></ul><div class="wrapper" id="wrap"><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://callfiles.ueibo.com/hexo-theme-laughing/post_background.jpg"><div class="post-title"><h1 class="title">css动画：animation、transition、transform、translate</h1><ul class="meta"><li><i class="icon icon-author"></i>Expsbear</li><li><i class="icon icon-clock"></i>12 Minutes</li><li><i class="icon icon-calendar"></i>July 6, 2018</li></ul></div></div><div class="article-content" style="max-width:800px"><h2 id="阿里有这样一道面试题：使用css实现一个持续的动画效果"><a href="#阿里有这样一道面试题：使用css实现一个持续的动画效果" class="headerlink" title="阿里有这样一道面试题：使用css实现一个持续的动画效果"></a>阿里有这样一道面试题：使用css实现一个持续的动画效果</h2><p>我相信这道面试题对于大多数人来说都没什么问题的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">animation:mymove 5s infinite;</span><br><span class="line">@keyframes mymove &#123;</span><br><span class="line">from &#123;top:0px;&#125;</span><br><span class="line">to &#123;top:200px;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这道题主要考察的是animation的用法，看到animation大家都应该会想到transition、transform、translate，那么问题来了，这四个css动画到底该怎么使用？有什么区别呢？</p>
 <table>
 <thead>
@@ -35,7 +35,7 @@
 <li>是一次性的，不能重复发生，除非一再触发</li>
 <li>只能定义开始状态和结束状态，不能定义中间状态，也就是说只有两个状态</li>
 </ol>
-<p>语法：<strong>transition: property duration timing-function delay;</strong></p>
+<p>语法：transition: property duration timing-function delay;</p>
 <table>
 <thead>
 <tr>
@@ -62,7 +62,101 @@
 </tr>
 </tbody>
 </table>
-</div><div class="article-meta" style="max-width:800px"></div><div class="article-comment" style="max-width:800px"><div class="ds-thread" id="ds-thread" data-thread-key="cjjb7sh380000i4nzwfo1s715" data-title="css动画：animation、transition、transform、translate" data-url="http://yoursite.com/2018/07/06/css-animation/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
+<h2 id="anmation"><a href="#anmation" class="headerlink" title="anmation"></a>anmation</h2><p>在官方的介绍中这个属性是transition属性的扩展，可以把它理解为animation是由多个transition的效果叠加，从而做出复杂酷炫的效果，同样我们还是先来一个demo：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;animation&lt;/title&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">.box &#123;</span><br><span class="line">  height: 100px;</span><br><span class="line">  width: 100px;</span><br><span class="line">  border: 15px solid black;</span><br><span class="line">  animation: changebox 1s ease-in-out 1s infinite alternate running forwards;</span><br><span class="line">&#125;</span><br><span class="line">.box:hover &#123;</span><br><span class="line">    animation-play-state: paused;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes changebox &#123;</span><br><span class="line">  10% &#123;</span><br><span class="line">      background: red;</span><br><span class="line">  &#125;</span><br><span class="line">  50% &#123;</span><br><span class="line">      width: 80px;</span><br><span class="line">  &#125;</span><br><span class="line">  70% &#123;</span><br><span class="line">      border: 15px solid yellow;</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    width: 180px;</span><br><span class="line">    height: 180px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>我们先来看看keyframes这个关键点，它定义了一个动画组合叫changebox，里面的10%，50%，70%，100%代表在变化中不同时间点的属性值，比如这个动画的总时间是1s，那么10%就是在0-0.1s中的动画，通过这个我们可以较精确的控制动画变化中任何一个时间点的属性效果，这大大提高了我们对动画的把控，是做复杂动画的基础，animation中有八个值，通过控制animation的每个值，控制动画变得非常灵活，我们来具体了解它的语法以及各个值代表着什么：</p>
+<p>语法：animation: name duration timing-function delay iteration-count direction play-state fill-mode;</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>用来调用@keyframes定义好的动画，与@keyframes定义的动画名称一致</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>指定元素播放动画所持续的时间</td>
+</tr>
+<tr>
+<td>timing-function</td>
+<td>规定速度效果的速度曲线，是针对每一个小动画所在时间范围的变换速率</td>
+</tr>
+<tr>
+<td>delay</td>
+<td>定义在浏览器开始执行动画之前等待的时间，值整个animation执行之前等待的时间</td>
+</tr>
+<tr>
+<td>iteration-count</td>
+<td>定义动画的播放次数，可选具体次数或者无限(infinite)</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>设置动画播放方向：normal(按时间轴顺序),reverse(时间轴反方向运行),alternate(轮流，即来回往复进行),alternate-reverse(动画先反运行再正方向运行，并持续交替运行)</td>
+</tr>
+<tr>
+<td>play-state</td>
+<td>控制元素动画的播放状态，通过此来控制动画的暂停和继续，两个值：running(继续)，paused(暂停)</td>
+</tr>
+<tr>
+<td>fill-mode</td>
+<td>控制动画结束后，元素的样式，有四个值：none(回到动画没开始时的状态)，forwards(动画结束后动画停留在结束状态)，backwords(动画回到第一帧的状态)，both(根据animation-direction轮流应用forwards和backwards规则)，注意与iteration-count不要冲突(动画执行无限次)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="transform与translate"><a href="#transform与translate" class="headerlink" title="transform与translate"></a>transform与translate</h2><p>为什么把transform和translate放在一起讲呢？上面也提到了translate是transform的一个属性值，所以放在一起讲再合适不过了，老规矩还是先来个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;style&gt; </span><br><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">margin:30px;</span><br><span class="line">width:200px;</span><br><span class="line">height:100px;</span><br><span class="line">background-color:yellow;</span><br><span class="line">transform:translate(10px,20px);</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div&gt;Hello World&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>首先这个例子transform使用的是translate属性，讲图形沿着x轴和y轴移动一定的距离，其实transform与translate用起来是非常简单的，所以这里就不多说了，现在介绍transform一些其他常用属性值：</p>
+<p>语法：transform: none|transform-functions;</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>none</td>
+<td>定义不进行转换</td>
+</tr>
+<tr>
+<td>translate（x，y）</td>
+<td>定义沿着x轴和y轴进行移动</td>
+</tr>
+<tr>
+<td>tanslateX（x）</td>
+<td>定义沿着x轴进行移动</td>
+</tr>
+<tr>
+<td>tanslateY（y）</td>
+<td>定义沿着y轴进行移动</td>
+</tr>
+<tr>
+<td>scale（x，y）</td>
+<td>通过设置x和y的值来进行伸缩转换</td>
+</tr>
+<tr>
+<td>scaleX（x）</td>
+<td>通过设置x的值来进行伸缩转换</td>
+</tr>
+<tr>
+<td>scaleY（y）</td>
+<td>通过设置y的值来进行伸缩转换</td>
+</tr>
+<tr>
+<td>rotate（angle）</td>
+<td>通过设置angle的值来旋转一定的角度</td>
+</tr>
+</tbody>
+</table>
+<p>更多的属性值可以参考：    <a href="http://www.w3school.com.cn/cssref/pr_transform.asp" target="_blank" rel="noopener">W3School</a></p>
+<p>到这里，四个比较容易混淆的css动画就讲完了，文章若有出现错误，欢迎指点~</p>
+</div><div class="article-meta" style="max-width:800px"></div><div class="article-comment" style="max-width:800px"><div class="ds-thread" id="ds-thread" data-thread-key="cjjbbpryw0000k0nz5x2i2scv" data-title="css动画：animation、transition、transform、translate" data-url="http://yoursite.com/2018/07/06/css-animation/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
 var duoshuoQuery = {short_name: siteName};
 (function() {
   var ds = document.createElement('script');
