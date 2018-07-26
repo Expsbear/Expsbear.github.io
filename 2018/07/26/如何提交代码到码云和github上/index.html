@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>如何提交代码到码云和github上 - Expsbear's Blog</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="https://github.com/Expsbear"><span>Github</span></a></li></ul><div class="wrapper" id="wrap"><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://callfiles.ueibo.com/hexo-theme-laughing/post_background.jpg"><div class="post-title"><h1 class="title">如何提交代码到码云和github上</h1><ul class="meta"><li><i class="icon icon-author"></i>Expsbear</li><li><i class="icon icon-clock"></i>1 Minutes</li><li><i class="icon icon-calendar"></i>July 26, 2018</li></ul></div></div><div class="article-content" style="max-width:800px"><h2 id="提交到码云上"><a href="#提交到码云上" class="headerlink" title="提交到码云上"></a>提交到码云上</h2><ol>
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>如何提交代码到码云和github上 - Expsbear's Blog</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="https://github.com/Expsbear"><span>Github</span></a></li></ul><div class="wrapper" id="wrap"><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://callfiles.ueibo.com/hexo-theme-laughing/post_background.jpg"><div class="post-title"><h1 class="title">如何提交代码到码云和github上</h1><ul class="meta"><li><i class="icon icon-author"></i>Expsbear</li><li><i class="icon icon-clock"></i>3 Minutes</li><li><i class="icon icon-calendar"></i>July 26, 2018</li></ul></div></div><div class="article-content" style="max-width:800px"><h2 id="提交到码云上"><a href="#提交到码云上" class="headerlink" title="提交到码云上"></a>提交到码云上</h2><ol>
 <li><p>安装Git，在本地创建一个项目文件夹，在该文件夹中右击打开Git Bash Here选项，在命令行窗口输入git init初始化库管理窗口。</p>
 </li>
 <li><p>修改Git的全局配置（下次不需修改）</p>
@@ -16,20 +16,69 @@
 </li>
 <li><p>创建远程库的配置信息,在git bash here命令行窗口下输入：</p>
 <blockquote>
-<p>git remote add 远程库名（如origin） 项目的https地址<br>git remote -v  //检查远程库名是否被使用<br>git remote rm  //删除删除远程库名  </p>
+<p>git remote add 远程库名（如origin） 项目的https地址<br>git remote -v     //检查远程库名是否被使用<br>git remote rm     //删除远程库名  </p>
 </blockquote>
 </li>
 <li><p>在本地文件夹下创建文件（如index.js）</p>
 <blockquote>
-<p>git add .  //将文件添加到提交列表<br>git commit -m “注释”  //将文件提交到本地仓库<br>git status  //查看状态<br>git push -f 远程库名（如origin）master  </p>
+<p>git add .     //将文件添加到提交列表<br>git commit -m “注释”     //将文件提交到本地仓库<br>git status     //查看状态<br>git push -f 远程库名（如origin）master  </p>
 </blockquote>
 </li>
 </ol>
 <p><strong>注意</strong>：第一次推送代码到码云上时记得在push后面加上-f，之后推送可以不加-f  </p>
 <ol start="7">
-<li>产生冲突时（即本地和远程同时修改同一区域代码），则会推送失败，此时可以输入git pull 远程库名（如origin） master，重新确定修改代码再进行推送。  </li>
+<li>产生冲突时（即本地和远程同时修改同一区域代码），则会推送失败，此时可以输入以下命令，重新确定修改代码再进行推送：</li>
 </ol>
-<h2 id="提交到github上"><a href="#提交到github上" class="headerlink" title="提交到github上"></a>提交到github上</h2></div><div class="article-meta" style="max-width:800px"></div><div class="article-comment" style="max-width:800px"><div class="ds-thread" id="ds-thread" data-thread-key="cjk28ofo60003ugnzpkici4ly" data-title="如何提交代码到码云和github上" data-url="http://yoursite.com/2018/07/26/如何提交代码到码云和github上/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
+<blockquote>
+<p>git pull 远程库名（如origin） master  </p>
+</blockquote>
+<h2 id="提交到github上"><a href="#提交到github上" class="headerlink" title="提交到github上"></a>提交到github上</h2><ol>
+<li><p>安装Git，在本地创建一个项目文件夹，在该文件夹中右击打开Git Bash Here选项，在命令行窗口输入git init初始化库管理窗口。</p>
+</li>
+<li><p>修改Git的全局配置（下次不需修改）</p>
+</li>
+</ol>
+<blockquote>
+<p> git config –global user.name “你在github上的账号”<br> git config –global user.email “你注册github的邮箱”  </p>
+</blockquote>
+<ol start="3">
+<li>设置SSH key<br>首先检查是否已生成密钥cd ~/.ssh，如果返回的ls有3个文件,则密钥已经生成。<br><img src="https://i.imgur.com/MRjaQIs.png" alt=""><br>如果没有密钥，则可以通过以下命令生成：<blockquote>
+<p>ssh-keygen -t rsa -C “你注册github的邮箱” </p>
+</blockquote>
+</li>
+</ol>
+<p>生成过程中一路按3次回车键就好了。（默认路径，默认没有密码登录）<br>生成成功后，去对应目录C:\Users\hyt.ssh里（hyt为电脑用户名，每个人不同）用记事本打开id_rsa.pub，得到ssh key公钥。</p>
+<p><img src="https://i.imgur.com/ackgEdF.png" alt="">  </p>
+<ol start="4">
+<li>为github账号配置ssh key </li>
+</ol>
+<p>切换到github，展开个人头像的小三角，点击settings，然后打开SSH and GPG keys菜单， 点击New SSH key新增密钥，填上标题（最好跟本地仓库保持一致）  </p>
+<p><img src="https://i.imgur.com/cybQBRs.png" alt="">  </p>
+<p>接着将id_rsa.pub文件粘贴到Key，最后Add SSH key生成密钥。  </p>
+<ol start="5">
+<li>创建项目并关联github仓库</li>
+</ol>
+<p>展开加号旁边的小三角，点击New repository,创建新项目。  </p>
+<p><img src="https://i.imgur.com/uKg5Awy.png" alt="">  </p>
+<p>接着执行以下命令：  </p>
+<blockquote>
+<p>git remote add 远程库名（如origin） 项目的https地址<br>git remote -v     //检查远程库名是否被使用<br>git remote rm     //删除远程库名  </p>
+</blockquote>
+<ol start="6">
+<li>在本地文件夹下创建文件（如index.js）<blockquote>
+<p>git add .     //将文件添加到提交列表<br>git commit -m “注释”     //将文件提交到本地仓库<br>git status     //查看状态<br>git push -u 远程库名（如origin）master   </p>
+</blockquote>
+</li>
+</ol>
+<p><strong>注意</strong>：第一次推送代码到码云上时记得在push后面加上-u，之后推送可以不加-f  </p>
+<ol start="7">
+<li>产生冲突时（即本地和远程同时修改同一区域代码），则会推送失败，此时可以输入以下命令，重新确定修改代码再进行推送：</li>
+</ol>
+<blockquote>
+<p>git pull 远程库名（如origin） master   </p>
+</blockquote>
+<p>其实，上传代码到码云和github的步骤基本一样，大同小异，只要注意一些小细节就可以了，比如说，上传到github上的话就需要添加密钥。好了，这篇文章就到此结束了，希望对你有所帮助！</p>
+</div><div class="article-meta" style="max-width:800px"></div><div class="article-comment" style="max-width:800px"><div class="ds-thread" id="ds-thread" data-thread-key="cjk2auc0v0000vgnzzimpszlh" data-title="如何提交代码到码云和github上" data-url="http://yoursite.com/2018/07/26/如何提交代码到码云和github上/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
 var duoshuoQuery = {short_name: siteName};
 (function() {
   var ds = document.createElement('script');
