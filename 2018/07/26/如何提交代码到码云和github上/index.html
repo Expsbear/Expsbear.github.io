@@ -42,11 +42,14 @@
 <p> git config –global user.name “你在github上的账号”<br> git config –global user.email “你注册github的邮箱”  </p>
 </blockquote>
 <ol start="3">
-<li>设置SSH key<br>首先检查是否已生成密钥cd ~/.ssh，如果返回的ls有3个文件,则密钥已经生成。<br><img src="https://i.imgur.com/MRjaQIs.png" alt=""><br>如果没有密钥，则可以通过以下命令生成：<blockquote>
+<li>设置SSH key  </li>
+</ol>
+<p>首先检查是否已生成密钥cd ~/.ssh，如果返回的ls有3个文件,则密钥已经生成。  </p>
+<p><img src="https://i.imgur.com/MRjaQIs.png" alt="">  </p>
+<p>如果没有密钥，则可以通过以下命令生成：  </p>
+<blockquote>
 <p>ssh-keygen -t rsa -C “你注册github的邮箱” </p>
 </blockquote>
-</li>
-</ol>
 <p>生成过程中一路按3次回车键就好了。（默认路径，默认没有密码登录）<br>生成成功后，去对应目录C:\Users\hyt.ssh里（hyt为电脑用户名，每个人不同）用记事本打开id_rsa.pub，得到ssh key公钥。</p>
 <p><img src="https://i.imgur.com/ackgEdF.png" alt="">  </p>
 <ol start="4">
@@ -65,11 +68,11 @@
 <p>git remote add 远程库名（如origin） 项目的https地址<br>git remote -v     //检查远程库名是否被使用<br>git remote rm     //删除远程库名  </p>
 </blockquote>
 <ol start="6">
-<li>在本地文件夹下创建文件（如index.js）<blockquote>
+<li>在本地文件夹下创建文件（如index.js）  </li>
+</ol>
+<blockquote>
 <p>git add .     //将文件添加到提交列表<br>git commit -m “注释”     //将文件提交到本地仓库<br>git status     //查看状态<br>git push -u 远程库名（如origin）master   </p>
 </blockquote>
-</li>
-</ol>
 <p><strong>注意</strong>：第一次推送代码到码云上时记得在push后面加上-u，之后推送可以不加-f  </p>
 <ol start="7">
 <li>产生冲突时（即本地和远程同时修改同一区域代码），则会推送失败，此时可以输入以下命令，重新确定修改代码再进行推送：</li>
@@ -78,7 +81,7 @@
 <p>git pull 远程库名（如origin） master   </p>
 </blockquote>
 <p>其实，上传代码到码云和github的步骤基本一样，大同小异，只要注意一些小细节就可以了，比如说，上传到github上的话就需要添加密钥。好了，这篇文章就到此结束了，希望对你有所帮助！</p>
-</div><div class="article-meta" style="max-width:800px"></div><div class="article-comment" style="max-width:800px"><div class="ds-thread" id="ds-thread" data-thread-key="cjk2auc0v0000vgnzzimpszlh" data-title="如何提交代码到码云和github上" data-url="http://yoursite.com/2018/07/26/如何提交代码到码云和github上/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
+</div><div class="article-meta" style="max-width:800px"></div><div class="article-comment" style="max-width:800px"><div class="ds-thread" id="ds-thread" data-thread-key="cjk2b14110003qknzmhuv6uwn" data-title="如何提交代码到码云和github上" data-url="http://yoursite.com/2018/07/26/如何提交代码到码云和github上/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
 var duoshuoQuery = {short_name: siteName};
 (function() {
   var ds = document.createElement('script');
