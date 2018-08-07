@@ -1,10 +1,71 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>基于mpvue框架的小程序是如何开发的？ - Expsbear's Blog</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="https://github.com/Expsbear"><span>Github</span></a></li></ul><div class="wrapper" id="wrap"><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://callfiles.ueibo.com/hexo-theme-laughing/post_background.jpg"><div class="post-title"><h1 class="title">基于mpvue框架的小程序是如何开发的？</h1><ul class="meta"><li><i class="icon icon-author"></i>Expsbear</li><li><i class="icon icon-clock"></i>0 Minutes</li><li><i class="icon icon-calendar"></i>August 7, 2018</li></ul></div></div><div class="article-content" style="max-width:800px"><p><strong>大家都知道，目前在IT圈比较火的无疑就是小程序，那么小程序的框架有哪些呢？除了腾讯的wepy，还有就是美团开发的mpvue，当时出来的时候火爆了整个IT圈，那么基于mpvue框架的小程序究竟是如何开发的呢？本文章主要讲解基于mpvue的小程序开发的前后台开发环境搭建，主要涉及的技术栈有mpvue+koa2+mysql。</strong></p>
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>基于mpvue框架的小程序是如何开发的？ - Expsbear's Blog</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="https://github.com/Expsbear"><span>Github</span></a></li></ul><div class="wrapper" id="wrap"><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://callfiles.ueibo.com/hexo-theme-laughing/post_background.jpg"><div class="post-title"><h1 class="title">基于mpvue框架的小程序是如何开发的？</h1><ul class="meta"><li><i class="icon icon-author"></i>Expsbear</li><li><i class="icon icon-clock"></i>3 Minutes</li><li><i class="icon icon-calendar"></i>August 7, 2018</li></ul></div></div><div class="article-content" style="max-width:800px"><p><strong>大家都知道，目前在IT圈比较火的无疑就是小程序，那么小程序的框架有哪些呢？除了腾讯的wepy，还有就是美团开发的mpvue，当时出来的时候火爆了整个IT圈，那么基于mpvue框架的小程序究竟是如何开发的呢？本文章主要讲解基于mpvue的小程序开发的前后台开发环境搭建，主要涉及的技术栈有mpvue+koa2+mysql。</strong></p>
 <ul>
-<li>到<a href="mp.weixin.qq.com">小程序后台官网</a>注册账号，登录进去，填写完相关信息之后，点击设置-开发设置，可以看到AppId，这个AppId在小程序开发过程中会用到。</li>
+<li>到<a href="mp.weixin.qq.com">小程序后台官网</a>注册账号，登录进去，填写完相关信息之后，点击设置-开发设置，可以看到AppId，这个AppId在小程序开发过程中会用到</li>
 </ul>
 <p><img src="https://i.imgur.com/OtcgA9h.png" alt=""></p>
 <p><img src="https://i.imgur.com/lt42mYL.png" alt=""></p>
-</div><div class="article-meta" style="max-width:800px"></div><div class="article-comment" style="max-width:800px"><div class="ds-thread" id="ds-thread" data-thread-key="cjkj1hx230000y4nzxz8tizkt" data-title="基于mpvue框架的小程序是如何开发的？" data-url="http://yoursite.com/2018/08/07/基于mpvue框架的小程序是如何开发的？/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
+<ul>
+<li>在电脑上新建文件夹，搭建初始化小程序开发工程</li>
+</ul>
+<blockquote>
+<p>vue init mpvue/mpvue-quickstart my-project  </p>
+</blockquote>
+<p>搭建过程中，wxmp appid就是填刚刚在后台看到的AppId,其他的随意，可以一路按回车，完成之后安装相关依赖包。  </p>
+<blockquote>
+<p>npm install  </p>
+</blockquote>
+<ul>
+<li>同样来到小程序后台，点击设置-开发设置，开通腾讯云，按照步骤进行操作  </li>
+</ul>
+<p><img src="https://i.imgur.com/GvqOUvj.png" alt="">  </p>
+<p>腾讯云是我们整个小程序的后台开发环境，下载node.js demo代码包之后，复制server文件夹到小程序工程my-project根目录下，因后端代码要部署到腾讯云上，所以在my-project根目录下的project.config.json中添加一条配置：”qcloudRoot”:”./server/“。  </p>
+<p><img src="https://i.imgur.com/4pcjuM1.png" alt="">  </p>
+<ul>
+<li>安装客户端sdk，提供客户登录信道等服务  </li>
+</ul>
+<blockquote>
+<p>npm install wafere2-client-sdk –save  </p>
+</blockquote>
+<ul>
+<li>安装sass  </li>
+</ul>
+<blockquote>
+<p>npm install sass-loader node-sass -save-dev  </p>
+</blockquote>
+<p>其实，到这一步可以说整个开发环境都搭建好了，但是有一个问题，就是每次写完代码之后都要到小程序开发者工具点击腾讯云，上传代码，这对于开发者来说非常麻烦，那么有什么解决方案吗？当然有啦，那就是在本地搭建一个后台开发环境，如果不觉得每次都要上传代码很麻烦的话完全可以忽略后面的内容。  </p>
+<ul>
+<li>在本地安装mysql  </li>
+</ul>
+<p>网上随便搜各种安装方法，在此我推荐一篇有关安装mysql的文章，讲解得非常详细：<a href="https://blog.csdn.net/qq_41307443/article/details/79839558" target="_blank" rel="noopener">https://blog.csdn.net/qq_41307443/article/details/79839558</a>  </p>
+<ul>
+<li>本地后台开发环境的配置  </li>
+</ul>
+<p>点击链接<a href="https://cloud.tencent.com/document/product/619/11442" target="_blank" rel="noopener">https://cloud.tencent.com/document/product/619/11442</a>，找到”本地如何搭建开发环境”。  </p>
+<p><img src="https://i.imgur.com/jMHoxVQ.png" alt="">  </p>
+<p>将代码复制到my-project/server/config.js中，只需要修改三条配置，如下图：  </p>
+<p><img src="https://i.imgur.com/SlI0jYp.png" alt="">  </p>
+<p>其中qcloudAppId填写上文提到的AppId,qcloudSecretId和qcloudSecretKey在<a href="https://console.cloud.tencent.com/cam/capi" target="_blank" rel="noopener">https://console.cloud.tencent.com/cam/capi</a>中可以找到。  </p>
+<p><img src="https://i.imgur.com/5Mk9U3s.png" alt="">  </p>
+<ul>
+<li>安装nodemon，避免每次修改代码重启服务  </li>
+</ul>
+<blockquote>
+<p>npm install -g nodemon  </p>
+</blockquote>
+<ul>
+<li>安装相关依赖包，并初始化数据表  </li>
+</ul>
+<blockquote>
+<p>npm install<br>node tools/initdb.js  </p>
+</blockquote>
+<ul>
+<li>启动数据库，启动服务器  </li>
+</ul>
+<blockquote>
+<p>net start mysql<br>mysql -u root -p自己的数据库密码<br>my-project:npm run dev<br>my-project/server:npm run dev  </p>
+</blockquote>
+<p>到这里，本地开发环境全部搭建完成了，这时候你就可以愉快的开发基于mpvue框架的小程序了，由于技术有限，若文章出现错误，欢迎点评指正！</p>
+</div><div class="article-meta" style="max-width:800px"></div><div class="article-comment" style="max-width:800px"><div class="ds-thread" id="ds-thread" data-thread-key="cjkj466jv0002y4nzhcfkkztb" data-title="基于mpvue框架的小程序是如何开发的？" data-url="http://yoursite.com/2018/08/07/基于mpvue框架的小程序是如何开发的？/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
 var duoshuoQuery = {short_name: siteName};
 (function() {
   var ds = document.createElement('script');
