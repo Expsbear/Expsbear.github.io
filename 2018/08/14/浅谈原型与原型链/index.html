@@ -3,25 +3,33 @@
 <p>在js所有对象中（包括普通对象和函数对象）都存在一个<em>proto</em>属性，该属性指向实例对象的构造函数的原型。  </p>
 <p>在js中，原型也是一个对象，原型的作用则是实现对象的继承。  </p>
 <p><img src="https://i.imgur.com/zyxWtIG.jpg" alt="">  </p>
-<pre><code>function Person(){
-</code></pre><p>}  </p>
-<p>var person = new Person()  </p>
-<p>console.log(person.<em>proto</em> == Person.prototype)  //true  </p>
-<p>console.log(Person.prototype.constructor == Person)  //true  </p>
-<p>// 这是一个ES5的方法,可以获得对象的原型  </p>
-<p>console.log(Object.getPrototypeOf(person) === Person.prototype) //true  </p>
-<p>Person.prototype.name = ‘panda’  </p>
-<p>var person1 = new Person()  </p>
-<p>var person2 = new Person()  </p>
-<p>person1.name = ‘bear1’  </p>
-<p>person2.name = ‘bear2’  </p>
-<p>console.log(person1.name)  //bear1  </p>
-<p>console.log(person2.name)  //bear2  </p>
-<p>delete.person1.name  </p>
-<p>delete.person2.name  </p>
-<p>console.log(person1.name)  //panda  </p>
-<p>console.log(person2.name)  //panda  </p>
-</div><div class="article-meta" style="max-width:800px"></div><div class="article-comment" style="max-width:800px"><div class="ds-thread" id="ds-thread" data-thread-key="cjktg2ye70000yonzljlnn1bd" data-title="浅谈原型与原型链" data-url="http://yoursite.com/2018/08/14/浅谈原型与原型链/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
+<pre class="prettyprit lang-指定样式">
+    function Person(){
+
+    }
+
+    var person = new Person()
+    console.log(person._proto_ == Person.prototype)  //true
+    console.log(Person.prototype.constructor == Person)  //true
+    // 这是一个ES5的方法,可以获得对象的原型
+    console.log(Object.getPrototypeOf(person) === Person.prototype) //true
+
+    Person.prototype.name = 'panda'
+
+    var person1 = new Person()
+    var person2 = new Person()
+    person1.name = 'bear1'
+    person2.name = 'bear2'
+    console.log(person1.name)  //bear1
+    console.log(person2.name)  //bear2
+
+
+    delete.person1.name
+    delete.person2.name
+    console.log(person1.name)  //panda
+    console.log(person2.name)  //panda
+</pre>
+</div><div class="article-meta" style="max-width:800px"></div><div class="article-comment" style="max-width:800px"><div class="ds-thread" id="ds-thread" data-thread-key="cjktgitc300039knz68ezihlj" data-title="浅谈原型与原型链" data-url="http://yoursite.com/2018/08/14/浅谈原型与原型链/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
 var duoshuoQuery = {short_name: siteName};
 (function() {
   var ds = document.createElement('script');
