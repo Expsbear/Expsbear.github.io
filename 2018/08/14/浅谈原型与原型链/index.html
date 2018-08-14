@@ -28,8 +28,12 @@
     delete.person2.name
     console.log(person1.name)  //panda
     console.log(person2.name)  //panda
-</pre>
-</div><div class="article-meta" style="max-width:800px"></div><div class="article-comment" style="max-width:800px"><div class="ds-thread" id="ds-thread" data-thread-key="cjkthfql70004x0nzta2xjshd" data-title="浅谈原型与原型链" data-url="http://yoursite.com/2018/08/14/浅谈原型与原型链/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
+</pre>  
+
+<p>结合上面的图和例子，应该可以更加通俗易懂了。在这个例子中，person,person1,person2都是构造函数Person创建的实例对象，设置了person1，person2的name属性，都可以读取到相应的值bear1，bear2，当删除它们的name属性时，从person1，person2中读取不到name属性时，就会从它们的原型中查找（也就是person1.<strong>proto</strong> == Person.prototype和person2.<strong>proto</strong> == Person.prototype），刚好找到了panda，构造函数创建的对象都会从原型”继承”属性，万一找不到呢？原型的原型又是什么呢？  </p>
+<p>在前面也提到了原型也是一个对象，而原型对象是通过Object构造函数生成的，原型对象的<em>proto</em>（即Person.prototype.<em>proto</em>）指向构造函数的prototype（即Object.prototype）,关系有点复杂了，我们还是简单粗暴直接上图：  </p>
+<p><img src="https://i.imgur.com/f2E0HCI.jpg" alt="">  </p>
+</div><div class="article-meta" style="max-width:800px"></div><div class="article-comment" style="max-width:800px"><div class="ds-thread" id="ds-thread" data-thread-key="cjktjw41s00035gnz3pjne8ma" data-title="浅谈原型与原型链" data-url="http://yoursite.com/2018/08/14/浅谈原型与原型链/" site-name="ueibo"></div><script>var siteName = document.getElementById('ds-thread').getAttribute('site-name');
 var duoshuoQuery = {short_name: siteName};
 (function() {
   var ds = document.createElement('script');
